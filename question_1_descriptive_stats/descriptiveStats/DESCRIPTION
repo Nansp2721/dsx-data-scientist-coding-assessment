@@ -1,0 +1,14 @@
+Package: descriptiveStats
+Title: Simple Descriptive Statistics Functions
+Version: 0.1.0
+Authors@R: 
+    person("Nanita", "Patel", email = "nans.p@hotmail.com", role = c("aut", "cre"))
+Description: Provides simple descriptive statistics functions including mean, median, mode, first quartile, third quartile, and interquartile range with input validation and edge-case handling.
+License: MIT
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    stats
+Suggests:
+    testthat
