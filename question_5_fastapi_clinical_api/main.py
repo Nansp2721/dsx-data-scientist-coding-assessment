@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List, Optional
 import pandas as pd
 from fastapi import FastAPI, HTTPException
@@ -5,13 +6,12 @@ from pydantic import BaseModel
 
 app = FastAPI(title="Clinical Trial Data API")
 
-# Load dataset
-# Put adae.csv in the same folder as this script
+DATA_PATH = Path(__file__).parent / "adae.csv"
+
 try:
-    df = pd.read_csv("adae.csv")
+    df = pd.read_csv(DATA_PATH)
 except FileNotFoundError:
     df = pd.DataFrame()
-
 
 class AEQuery(BaseModel):
     severity: Optional[List[str]] = None
@@ -76,4 +76,5 @@ def subject_risk(subject_id: str):
         "subject_id": subject_id,
         "risk_score": risk_score,
         "risk_category": risk_category
+
     }
